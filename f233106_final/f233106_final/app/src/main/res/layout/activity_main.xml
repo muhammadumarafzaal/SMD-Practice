@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F0F4F8"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Muhammad Umar"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            android:textColor="#1A237E"
+            android:layout_marginBottom="16dp" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/navbar"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            app:cardCornerRadius="30dp"
+            app:cardElevation="2dp"
+            app:cardBackgroundColor="#F2EBF5"
+            android:layout_marginBottom="24dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:paddingHorizontal="20dp"
+                android:orientation="horizontal">
+                <ImageView
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:src="@android:drawable/ic_menu_sort_by_size"
+                    android:alpha="0.5" />
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="  QuickFit Search..."
+                    android:layout_marginStart="8dp"
+                    android:textColor="#666666"
+                    android:textSize="15sp" />
+                <ImageView
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:src="@android:drawable/ic_btn_speak_now"
+                    android:alpha="0.5" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Fragment container is hidden to match your original UI screenshot, but kept in code -->
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/fragmentContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:layout_marginBottom="16dp" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="24dp"
+            app:cardBackgroundColor="#E8EAF6"
+            android:layout_marginBottom="16dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:padding="24dp">
+                <TextView android:id="@+id/tvApiResponse" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Tap to get advice" android:gravity="center" android:layout_marginBottom="16dp" />
+                <ProgressBar android:id="@+id/progressBar" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" />
+                <Button android:id="@+id/btnFetchRecipe" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Get Motivation" android:backgroundTint="#FF4081" android:textColor="#FFFFFF" app:cornerRadius="20dp" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <EditText
+            android:id="@+id/etUserNotes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Log your workout..."
+            android:background="@drawable/bg_card"
+            android:padding="20dp"
+            android:layout_marginBottom="16dp"/>
+
+        <Button android:id="@+id/btnSaveDb" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Save Workout" android:backgroundTint="#3F51B5" android:textColor="#FFFFFF" android:layout_marginBottom="8dp" />
+        <Button android:id="@+id/btnGoToHistory" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="History" style="?attr/materialButtonOutlinedStyle" android:layout_marginBottom="8dp" />
+
+        <Button android:id="@+id/btnTakePhoto" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Take Progress Photo" android:backgroundTint="#4CAF50" android:textColor="#FFFFFF" />
+
+    </LinearLayout>
+</ScrollView>
