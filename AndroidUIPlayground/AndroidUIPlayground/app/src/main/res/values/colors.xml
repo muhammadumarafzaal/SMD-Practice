@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Primary Palette -->
+    <color name="bg_dark">#0D0D1A</color>
+    <color name="surface">#13132B</color>
+    <color name="card_bg">#1C1C3A</color>
+    <color name="card_bg_light">#22224A</color>
+
+    <!-- Accent Colors -->
+    <color name="accent_purple">#7C4DFF</color>
+    <color name="accent_cyan">#00E5FF</color>
+    <color name="accent_pink">#FF4081</color>
+    <color name="accent_green">#00E676</color>
+    <color name="accent_yellow">#FFD740</color>
+    <color name="accent_orange">#FF6D00</color>
+
+    <!-- Text Colors -->
+    <color name="text_primary">#FFFFFF</color>
+    <color name="text_secondary">#B0B0CC</color>
+    <color name="text_hint">#606080</color>
+
+    <!-- Gradient Stops -->
+    <color name="grad_start">#7C4DFF</color>
+    <color name="grad_end">#FF4081</color>
+
+    <!-- Status Colors -->
+    <color name="status_present">#00E676</color>
+    <color name="status_absent">#FF4081</color>
+    <color name="status_late">#FFD740</color>
+
+    <!-- Divider & Border -->
+    <color name="divider">#2A2A50</color>
+    <color name="border_glow">#3A3A70</color>
+
+    <!-- Widget backgrounds -->
+    <color name="btn_primary">#7C4DFF</color>
+    <color name="btn_secondary">#1C1C3A</color>
+    <color name="edittext_bg">#16163A</color>
+    <color name="progress_track">#1C1C3A</color>
+    <color name="transparent">#00000000</color>
+</resources>

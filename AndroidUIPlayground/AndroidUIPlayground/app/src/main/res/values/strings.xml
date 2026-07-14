@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">UI Playground</string>
+
+    <!-- Home / Navigation -->
+    <string name="home_title">UI Playground</string>
+    <string name="home_subtitle">Android XML Concepts Demo</string>
+    <string name="nav_profile">Profile</string>
+    <string name="nav_stats">Stats</string>
+    <string name="nav_schedule">Schedule</string>
+    <string name="nav_gallery">Gallery</string>
+    <string name="nav_widgets">Widgets</string>
+
+    <!-- Profile Screen -->
+    <string name="profile_name">Alex Johnson</string>
+    <string name="profile_id">Student ID: CS-2024-0042</string>
+    <string name="profile_major">Computer Science</string>
+    <string name="profile_university">Tech University</string>
+    <string name="profile_gpa_label">GPA</string>
+    <string name="profile_gpa">3.87</string>
+    <string name="profile_year_label">Year</string>
+    <string name="profile_year">3rd</string>
+    <string name="profile_credits_label">Credits</string>
+    <string name="profile_credits">96</string>
+    <string name="profile_email_hint">Enter your email</string>
+    <string name="profile_email">alex.johnson@tech.edu</string>
+    <string name="profile_bio">Passionate developer. Coffee enthusiast. Building the future one line of code at a time.</string>
+    <string name="btn_edit_profile">Edit Profile</string>
+    <string name="btn_save">Save Changes</string>
+    <string name="label_relative_layout">← RelativeLayout Demo</string>
+
+    <!-- Stats Screen -->
+    <string name="stats_title">Course Stats</string>
+    <string name="label_linear_layout">← LinearLayout + Weights Demo</string>
+    <string name="course_algo">Algorithms</string>
+    <string name="course_os">Operating Systems</string>
+    <string name="course_db">Databases</string>
+    <string name="course_mobile">Mobile Dev</string>
+    <string name="course_ml">Machine Learning</string>
+    <string name="score_algo">92%</string>
+    <string name="score_os">78%</string>
+    <string name="score_db">85%</string>
+    <string name="score_mobile">97%</string>
+    <string name="score_ml">70%</string>
+    <string name="attendance_label">Overall Attendance</string>
+    <string name="attendance_value">88%</string>
+
+    <!-- Schedule Screen -->
+    <string name="schedule_title">Weekly Schedule</string>
+    <string name="label_table_layout">← TableLayout Demo</string>
+    <string name="col_time">Time</string>
+    <string name="col_mon">Mon</string>
+    <string name="col_tue">Tue</string>
+    <string name="col_wed">Wed</string>
+    <string name="col_thu">Thu</string>
+    <string name="col_fri">Fri</string>
+
+    <!-- Gallery Screen -->
+    <string name="gallery_title">Campus Gallery</string>
+    <string name="label_frame_layout">← FrameLayout Demo</string>
+    <string name="gallery_badge">NEW</string>
+    <string name="gallery_caption">University Library</string>
+    <string name="gallery_likes">❤ 142 Likes</string>
+    <string name="btn_prev">‹ Prev</string>
+    <string name="btn_next">Next ›</string>
+
+    <!-- Widgets Screen -->
+    <string name="widgets_title">Widget Showcase</string>
+    <string name="label_widgets">← All Widgets Demo</string>
+    <string name="check_reminders">Enable Reminders</string>
+    <string name="check_darkmode">Dark Mode</string>
+    <string name="radio_morning">Morning Classes</string>
+    <string name="radio_afternoon">Afternoon Classes</string>
+    <string name="switch_notifications">Push Notifications</string>
+    <string name="toggle_wifi">Wi-Fi</string>
+    <string name="btn_register">Register Now</string>
+    <string name="spinner_prompt">Select Semester</string>
+    <string name="input_name_hint">Full Name</string>
+    <string name="input_phone_hint">Phone Number</string>
+</resources>

@@ -1,0 +1,475 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    ╔══════════════════════════════════════════════════════════╗
+    ║  activity_stats.xml                                      ║
+    ║  CONCEPT: LinearLayout + layout_weight                   ║
+    ║  Demonstrates: orientation, layout_weight, weightSum,    ║
+    ║  gravity, layout_gravity, ProgressBar, padding, margin   ║
+    ╚══════════════════════════════════════════════════════════╝
+-->
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_dark">
+
+    <!--
+        ROOT: Vertical LinearLayout
+        All children stack top-to-bottom
+    -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/screen_padding"
+        android:paddingTop="@dimen/screen_padding_top">
+
+        <!-- Header Row (horizontal LinearLayout inside vertical) -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <!-- Back button -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="← Back"
+                android:textColor="@color/accent_purple"
+                android:textSize="14sp"
+                android:fontFamily="monospace" />
+
+            <!-- Push label to end using weight -->
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="LinearLayout"
+                android:textColor="@color/accent_pink"
+                android:textSize="10sp"
+                android:fontFamily="monospace"
+                android:background="@drawable/chip_course_bg"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:paddingTop="3dp"
+                android:paddingBottom="3dp" />
+        </LinearLayout>
+
+        <!-- Screen Title -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/stats_title"
+            android:textColor="@color/text_primary"
+            android:textSize="@dimen/text_xxl"
+            android:textStyle="bold"
+            android:fontFamily="sans-serif-condensed" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="Semester performance overview"
+            android:textColor="@color/text_secondary"
+            android:textSize="13sp" />
+
+        <!-- ── WEIGHT DEMO VISUAL ── -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="8dp"
+            android:text="WEIGHT DISTRIBUTION DEMO"
+            android:textColor="@color/text_hint"
+            android:textSize="10sp"
+            android:fontFamily="monospace"
+            android:letterSpacing="0.15" />
+
+        <!-- Weight demo: 3 views with different weights in horizontal LinearLayout
+             weightSum="6", weights: 1, 2, 3 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:orientation="horizontal"
+            android:weightSum="6"
+            android:background="@drawable/card_bg">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="W:1"
+                android:textColor="@color/bg_dark"
+                android:textSize="10sp"
+                android:fontFamily="monospace"
+                android:gravity="center"
+                android:background="@color/accent_pink" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:text="W:2"
+                android:textColor="@color/bg_dark"
+                android:textSize="10sp"
+                android:fontFamily="monospace"
+                android:gravity="center"
+                android:background="@color/accent_purple" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="3"
+                android:text="W:3"
+                android:textColor="@color/bg_dark"
+                android:textSize="10sp"
+                android:fontFamily="monospace"
+                android:gravity="center"
+                android:background="@color/accent_cyan" />
+        </LinearLayout>
+
+        <!-- ── GRAVITY DEMO ── -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="8dp"
+            android:text="GRAVITY DEMO (content alignment)"
+            android:textColor="@color/text_hint"
+            android:textSize="10sp"
+            android:fontFamily="monospace"
+            android:letterSpacing="0.15" />
+
+        <!-- gravity="start" -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="36dp"
+            android:orientation="horizontal"
+            android:background="@drawable/card_bg"
+            android:layout_marginBottom="4dp"
+            android:gravity="start|center_vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="gravity=start"
+                android:textColor="@color/accent_cyan"
+                android:textSize="12sp"
+                android:fontFamily="monospace"
+                android:paddingStart="12dp" />
+        </LinearLayout>
+
+        <!-- gravity="center" -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="36dp"
+            android:orientation="horizontal"
+            android:background="@drawable/card_bg"
+            android:layout_marginBottom="4dp"
+            android:gravity="center">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="gravity=center"
+                android:textColor="@color/accent_purple"
+                android:textSize="12sp"
+                android:fontFamily="monospace" />
+        </LinearLayout>
+
+        <!-- gravity="end" -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="36dp"
+            android:orientation="horizontal"
+            android:background="@drawable/card_bg"
+            android:layout_marginBottom="16dp"
+            android:gravity="end|center_vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="gravity=end"
+                android:textColor="@color/accent_pink"
+                android:textSize="12sp"
+                android:fontFamily="monospace"
+                android:paddingEnd="12dp" />
+        </LinearLayout>
+
+        <!-- ── COURSE SCORES SECTION ── -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:text="COURSE SCORES"
+            android:textColor="@color/text_hint"
+            android:textSize="10sp"
+            android:fontFamily="monospace"
+            android:letterSpacing="0.15" />
+
+        <!-- Course row reusable pattern — Algorithms 92% -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/card_bg"
+            android:padding="16dp"
+            android:layout_marginBottom="8dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="8dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/course_algo"
+                    android:textColor="@color/text_primary"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/score_algo"
+                    android:textColor="@color/accent_cyan"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:fontFamily="monospace" />
+            </LinearLayout>
+
+            <!-- Progress bar using horizontal LinearLayout weights (layout_weight as progress!) -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:orientation="horizontal"
+                android:background="@drawable/progress_bg"
+                android:weightSum="100">
+
+                <!-- Filled portion: weight=92 -->
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="92"
+                    android:background="@color/accent_cyan" />
+
+                <!-- Empty portion: weight=8 -->
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="8"
+                    android:background="@color/transparent" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Operating Systems 78% -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/card_bg"
+            android:padding="16dp"
+            android:layout_marginBottom="8dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="8dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/course_os"
+                    android:textColor="@color/text_primary"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/score_os"
+                    android:textColor="@color/accent_yellow"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:fontFamily="monospace" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:orientation="horizontal"
+                android:background="@drawable/progress_bg"
+                android:weightSum="100">
+                <View android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="78" android:background="@color/accent_yellow" />
+                <View android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="22" android:background="@color/transparent" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Databases 85% -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/card_bg"
+            android:padding="16dp"
+            android:layout_marginBottom="8dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="8dp">
+                <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/course_db" android:textColor="@color/text_primary" android:textSize="14sp" android:textStyle="bold" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/score_db" android:textColor="@color/accent_purple" android:textSize="14sp" android:textStyle="bold" android:fontFamily="monospace" />
+            </LinearLayout>
+            <LinearLayout android:layout_width="match_parent" android:layout_height="10dp" android:orientation="horizontal" android:background="@drawable/progress_bg" android:weightSum="100">
+                <View android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="85" android:background="@color/accent_purple" />
+                <View android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="15" android:background="@color/transparent" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Mobile Dev 97% -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/card_bg"
+            android:padding="16dp"
+            android:layout_marginBottom="8dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="8dp">
+                <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/course_mobile" android:textColor="@color/text_primary" android:textSize="14sp" android:textStyle="bold" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/score_mobile" android:textColor="@color/accent_green" android:textSize="14sp" android:textStyle="bold" android:fontFamily="monospace" />
+            </LinearLayout>
+            <LinearLayout android:layout_width="match_parent" android:layout_height="10dp" android:orientation="horizontal" android:background="@drawable/progress_bg" android:weightSum="100">
+                <View android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="97" android:background="@color/accent_green" />
+                <View android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="3" android:background="@color/transparent" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Machine Learning 70% -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/card_bg"
+            android:padding="16dp"
+            android:layout_marginBottom="20dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="8dp">
+                <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/course_ml" android:textColor="@color/text_primary" android:textSize="14sp" android:textStyle="bold" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/score_ml" android:textColor="@color/accent_orange" android:textSize="14sp" android:textStyle="bold" android:fontFamily="monospace" />
+            </LinearLayout>
+            <LinearLayout android:layout_width="match_parent" android:layout_height="10dp" android:orientation="horizontal" android:background="@drawable/progress_bg" android:weightSum="100">
+                <View android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="70" android:background="@color/accent_orange" />
+                <View android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="30" android:background="@color/transparent" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- ── ATTENDANCE SUMMARY (uses ProgressBar widget + layout_gravity) ── -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:text="ATTENDANCE"
+            android:textColor="@color/text_hint"
+            android:textSize="10sp"
+            android:fontFamily="monospace"
+            android:letterSpacing="0.15" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/card_bg"
+            android:padding="20dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="12dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/attendance_label"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/attendance_value"
+                    android:textColor="@color/accent_green"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    android:fontFamily="monospace" />
+            </LinearLayout>
+
+            <!-- Native ProgressBar widget (horizontal style) -->
+            <ProgressBar
+                android:layout_width="match_parent"
+                android:layout_height="12dp"
+                android:progress="88"
+                android:max="100"
+                style="@android:style/Widget.ProgressBar.Horizontal"
+                android:progressTint="@color/accent_green"
+                android:progressBackgroundTint="@color/progress_track"
+                android:layout_gravity="center_horizontal" />
+
+            <!-- layout_gravity demo: 3 labels at start, center, end -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:text="0%"
+                android:textColor="@color/text_hint"
+                android:textSize="10sp"
+                android:layout_gravity="start" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="50%"
+                android:textColor="@color/text_hint"
+                android:textSize="10sp"
+                android:layout_gravity="center_horizontal" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="100%"
+                android:textColor="@color/text_hint"
+                android:textSize="10sp"
+                android:layout_gravity="end" />
+        </LinearLayout>
+
+        <!-- Bottom spacer -->
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="24dp" />
+
+    </LinearLayout>
+</ScrollView>

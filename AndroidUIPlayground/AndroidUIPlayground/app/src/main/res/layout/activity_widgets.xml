@@ -1,0 +1,672 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    ╔══════════════════════════════════════════════════════════╗
+    ║  activity_widgets.xml                                    ║
+    ║  CONCEPT: All Widgets + Attributes                       ║
+    ║  Demonstrates: TextView, EditText, Button, CheckBox,     ║
+    ║  RadioButton, RadioGroup, Switch, ToggleButton,          ║
+    ║  ProgressBar, DatePicker, Spinner, ImageView,            ║
+    ║  padding, margin, gravity, background, visibility        ║
+    ╚══════════════════════════════════════════════════════════╝
+-->
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_dark">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/screen_padding"
+        android:paddingTop="@dimen/screen_padding_top">
+
+        <!-- Header -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="← Back"
+                android:textColor="@color/accent_purple"
+                android:textSize="14sp"
+                android:fontFamily="monospace" />
+
+            <Space android:layout_width="0dp" android:layout_height="1dp" android:layout_weight="1" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Widgets"
+                android:textColor="@color/accent_orange"
+                android:textSize="10sp"
+                android:fontFamily="monospace"
+                android:background="@drawable/chip_course_bg"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:paddingTop="3dp"
+                android:paddingBottom="3dp" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Widget\nShowcase"
+            android:textColor="@color/text_primary"
+            android:textSize="@dimen/text_xxl"
+            android:textStyle="bold"
+            android:fontFamily="sans-serif-condensed"
+            android:lineSpacingMultiplier="0.9" />
+
+        <!-- ══════════════════════════════════════════
+             SECTION 1: TextViews + Text Attributes
+             ══════════════════════════════════════════ -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="10dp"
+            android:text="01  TEXTVIEW"
+            android:textColor="@color/accent_cyan"
+            android:textSize="10sp"
+            android:fontFamily="monospace"
+            android:letterSpacing="0.15" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/card_bg"
+            android:padding="16dp">
+
+            <!-- Normal text -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Normal Text — textSize=16sp"
+                android:textColor="@color/text_primary"
+                android:textSize="16sp"
+                android:layout_marginBottom="8dp" />
+
+            <!-- Bold text -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Bold Text — textStyle=bold"
+                android:textColor="@color/text_primary"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="8dp" />
+
+            <!-- Italic text -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Italic Text — textStyle=italic"
+                android:textColor="@color/text_secondary"
+                android:textSize="16sp"
+                android:textStyle="italic"
+                android:layout_marginBottom="8dp" />
+
+            <!-- Colored text -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Colored — textColor=#accent_pink"
+                android:textColor="@color/accent_pink"
+                android:textSize="16sp"
+                android:layout_marginBottom="8dp" />
+
+            <!-- Text with background -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="  Text with Background  "
+                android:textColor="@color/bg_dark"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:background="@drawable/btn_primary"
+                android:paddingTop="6dp"
+                android:paddingBottom="6dp" />
+        </LinearLayout>
+
+        <!-- ══════════════════════════════════════════
+             SECTION 2: EditText types
+             ══════════════════════════════════════════ -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="10dp"
+            android:text="02  EDITTEXT"
+            android:textColor="@color/accent_cyan"
+            android:textSize="10sp"
+            android:fontFamily="monospace"
+            android:letterSpacing="0.15" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/card_bg"
+            android:padding="16dp">
+
+            <!-- Name input: inputType=text -->
+            <EditText
+                android:id="@+id/et_name"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:hint="@string/input_name_hint"
+                android:textColor="@color/text_primary"
+                android:textColorHint="@color/text_hint"
+                android:textSize="14sp"
+                android:background="@drawable/edittext_bg"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:inputType="textPersonName"
+                android:singleLine="true"
+                android:layout_marginBottom="10dp" />
+
+            <!-- Phone input: inputType=phone -->
+            <EditText
+                android:id="@+id/et_phone"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:hint="@string/input_phone_hint"
+                android:textColor="@color/text_primary"
+                android:textColorHint="@color/text_hint"
+                android:textSize="14sp"
+                android:background="@drawable/edittext_bg"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:inputType="phone"
+                android:singleLine="true"
+                android:layout_marginBottom="10dp" />
+
+            <!-- Password: inputType=textPassword -->
+            <EditText
+                android:id="@+id/et_password"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:hint="Password (inputType=textPassword)"
+                android:textColor="@color/text_primary"
+                android:textColorHint="@color/text_hint"
+                android:textSize="14sp"
+                android:background="@drawable/edittext_bg"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:inputType="textPassword"
+                android:singleLine="true" />
+        </LinearLayout>
+
+        <!-- ══════════════════════════════════════════
+             SECTION 3: Button variants
+             ══════════════════════════════════════════ -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="10dp"
+            android:text="03  BUTTON"
+            android:textColor="@color/accent_cyan"
+            android:textSize="10sp"
+            android:fontFamily="monospace"
+            android:letterSpacing="0.15" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/card_bg"
+            android:padding="16dp">
+
+            <!-- Primary button — gradient background -->
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/btn_height"
+                android:text="Primary Button"
+                android:textColor="@color/text_primary"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:background="@drawable/btn_primary"
+                android:layout_marginBottom="10dp" />
+
+            <!-- Secondary button — outlined -->
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/btn_height"
+                android:text="Secondary Button"
+                android:textColor="@color/accent_purple"
+                android:textSize="14sp"
+                android:background="@drawable/btn_secondary"
+                android:layout_marginBottom="10dp" />
+
+            <!-- Disabled button — visibility of disabled state -->
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/btn_height"
+                android:text="Disabled Button"
+                android:textColor="@color/text_hint"
+                android:textSize="14sp"
+                android:background="@color/card_bg_light"
+                android:enabled="false" />
+        </LinearLayout>
+
+        <!-- ══════════════════════════════════════════
+             SECTION 4: CheckBox
+             ══════════════════════════════════════════ -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="10dp"
+            android:text="04  CHECKBOX"
+            android:textColor="@color/accent_cyan"
+            android:textSize="10sp"
+            android:fontFamily="monospace"
+            android:letterSpacing="0.15" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/card_bg"
+            android:padding="16dp">
+
+            <!-- Checked checkbox -->
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/check_reminders"
+                android:textColor="@color/text_primary"
+                android:textSize="14sp"
+                android:checked="true"
+                android:buttonTint="@color/accent_purple"
+                android:layout_marginBottom="8dp" />
+
+            <!-- Unchecked checkbox -->
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/check_darkmode"
+                android:textColor="@color/text_primary"
+                android:textSize="14sp"
+                android:checked="false"
+                android:buttonTint="@color/accent_purple" />
+        </LinearLayout>
+
+        <!-- ══════════════════════════════════════════
+             SECTION 5: RadioButton + RadioGroup
+             ══════════════════════════════════════════ -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="10dp"
+            android:text="05  RADIOBUTTON"
+            android:textColor="@color/accent_cyan"
+            android:textSize="10sp"
+            android:fontFamily="monospace"
+            android:letterSpacing="0.15" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/card_bg"
+            android:padding="16dp">
+
+            <!-- RadioGroup ensures only one selected at a time -->
+            <RadioGroup
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/radio_morning"
+                    android:textColor="@color/text_primary"
+                    android:textSize="14sp"
+                    android:checked="true"
+                    android:buttonTint="@color/accent_pink"
+                    android:layout_marginBottom="8dp" />
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/radio_afternoon"
+                    android:textColor="@color/text_primary"
+                    android:textSize="14sp"
+                    android:checked="false"
+                    android:buttonTint="@color/accent_pink" />
+            </RadioGroup>
+        </LinearLayout>
+
+        <!-- ══════════════════════════════════════════
+             SECTION 6: Switch + ToggleButton
+             ══════════════════════════════════════════ -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="10dp"
+            android:text="06  SWITCH &amp; TOGGLE"
+            android:textColor="@color/accent_cyan"
+            android:textSize="10sp"
+            android:fontFamily="monospace"
+            android:letterSpacing="0.15" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/card_bg"
+            android:padding="16dp">
+
+            <!-- Switch row -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="12dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/switch_notifications"
+                    android:textColor="@color/text_primary"
+                    android:textSize="14sp" />
+
+                <Switch
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:thumbTint="@color/accent_purple"
+                    android:trackTint="@color/border_glow" />
+            </LinearLayout>
+
+            <!-- ToggleButton -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/toggle_wifi"
+                    android:textColor="@color/text_primary"
+                    android:textSize="14sp" />
+
+                <ToggleButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:textOn="ON"
+                    android:textOff="OFF"
+                    android:checked="false"
+                    android:textColor="@color/text_primary"
+                    android:textSize="12sp"
+                    android:background="@drawable/btn_secondary" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- ══════════════════════════════════════════
+             SECTION 7: ProgressBar (indeterminate + determinate)
+             ══════════════════════════════════════════ -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="10dp"
+            android:text="07  PROGRESSBAR"
+            android:textColor="@color/accent_cyan"
+            android:textSize="10sp"
+            android:fontFamily="monospace"
+            android:letterSpacing="0.15" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/card_bg"
+            android:padding="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Indeterminate (loading...)"
+                android:textColor="@color/text_secondary"
+                android:textSize="12sp"
+                android:layout_marginBottom="8dp" />
+
+            <!-- Indeterminate ProgressBar (spinning) -->
+            <ProgressBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:indeterminate="true"
+                android:indeterminateTint="@color/accent_purple"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="16dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Determinate (progress=65%)"
+                android:textColor="@color/text_secondary"
+                android:textSize="12sp"
+                android:layout_marginBottom="8dp" />
+
+            <!-- Horizontal determinate ProgressBar -->
+            <ProgressBar
+                android:layout_width="match_parent"
+                android:layout_height="12dp"
+                style="@android:style/Widget.ProgressBar.Horizontal"
+                android:progress="65"
+                android:max="100"
+                android:progressTint="@color/accent_cyan"
+                android:progressBackgroundTint="@color/progress_track" />
+        </LinearLayout>
+
+        <!-- ══════════════════════════════════════════
+             SECTION 8: Margin vs Padding Visual Demo
+             ══════════════════════════════════════════ -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="10dp"
+            android:text="08  MARGIN vs PADDING"
+            android:textColor="@color/accent_cyan"
+            android:textSize="10sp"
+            android:fontFamily="monospace"
+            android:letterSpacing="0.15" />
+
+        <!-- Outer card = shows margin effect -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="@drawable/card_bg"
+            android:padding="4dp">
+
+            <!-- View WITH margin (space outside) -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center_horizontal">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:background="@color/accent_purple"
+                    android:layout_margin="12dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:text="margin=12dp"
+                    android:textColor="@color/accent_purple"
+                    android:textSize="11sp"
+                    android:fontFamily="monospace"
+                    android:gravity="center" />
+            </LinearLayout>
+
+            <!-- View WITH padding (space inside) -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center_horizontal">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:text="Content"
+                    android:textColor="@color/bg_dark"
+                    android:textSize="12sp"
+                    android:gravity="center"
+                    android:background="@color/accent_cyan"
+                    android:padding="20dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="8dp"
+                    android:text="padding=20dp"
+                    android:textColor="@color/accent_cyan"
+                    android:textSize="11sp"
+                    android:fontFamily="monospace"
+                    android:gravity="center" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- ══════════════════════════════════════════
+             SECTION 9: Background Attribute Demo
+             ══════════════════════════════════════════ -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="10dp"
+            android:text="09  BACKGROUND ATTRIBUTE"
+            android:textColor="@color/accent_cyan"
+            android:textSize="10sp"
+            android:fontFamily="monospace"
+            android:letterSpacing="0.15" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/card_bg"
+            android:padding="16dp">
+
+            <!-- Solid color background -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:text="Solid Color  background='#028090'"
+                android:textColor="@color/text_primary"
+                android:textSize="12sp"
+                android:fontFamily="monospace"
+                android:gravity="center"
+                android:background="#028090"
+                android:layout_marginBottom="8dp" />
+
+            <!-- Gradient drawable background -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:text="Gradient  background='@drawable/btn_primary'"
+                android:textColor="@color/text_primary"
+                android:textSize="12sp"
+                android:fontFamily="monospace"
+                android:gravity="center"
+                android:background="@drawable/btn_primary"
+                android:layout_marginBottom="8dp" />
+
+            <!-- Color resource background -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:text="Color Resource  background='@color/surface'"
+                android:textColor="@color/text_primary"
+                android:textSize="12sp"
+                android:fontFamily="monospace"
+                android:gravity="center"
+                android:background="@color/surface"
+                android:layout_marginBottom="8dp" />
+
+            <!-- Transparent background -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:text="Transparent  background='@android:color/transparent'"
+                android:textColor="@color/text_secondary"
+                android:textSize="12sp"
+                android:fontFamily="monospace"
+                android:gravity="center"
+                android:background="@android:color/transparent" />
+        </LinearLayout>
+
+        <!-- ══════════════════════════════════════════
+             SECTION 10: Registration CTA
+             ══════════════════════════════════════════ -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/btn_primary"
+            android:padding="20dp"
+            android:layout_marginTop="24dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ready to Register?"
+                android:textColor="@color/text_primary"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_gravity="center_horizontal" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="16dp"
+                android:text="All widgets are covered. Time to build!"
+                android:textColor="#CCFFFFFF"
+                android:textSize="13sp"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/btn_height"
+                android:text="@string/btn_register"
+                android:textColor="@color/accent_purple"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:background="@color/text_primary" />
+        </LinearLayout>
+
+        <Space android:layout_width="match_parent" android:layout_height="32dp" />
+
+    </LinearLayout>
+</ScrollView>

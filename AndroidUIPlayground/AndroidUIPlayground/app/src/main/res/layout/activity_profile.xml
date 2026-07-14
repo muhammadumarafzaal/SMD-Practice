@@ -1,0 +1,428 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    ╔══════════════════════════════════════════════════════════╗
+    ║  activity_profile.xml                                    ║
+    ║  CONCEPT: RelativeLayout                                 ║
+    ║  Demonstrates: alignParent*, layout_above/below,         ║
+    ║  layout_toRightOf, centerHorizontal, EditText,           ║
+    ║  padding, margin, background, gravity, visibility        ║
+    ╚══════════════════════════════════════════════════════════╝
+-->
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_dark"
+    android:fillViewport="true">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/screen_padding"
+        android:paddingTop="@dimen/screen_padding_top">
+
+        <!-- ── BACK BUTTON (alignParentStart + alignParentTop) ── -->
+        <TextView
+            android:id="@+id/btn_back_profile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="← Back"
+            android:textColor="@color/accent_purple"
+            android:textSize="14sp"
+            android:fontFamily="monospace"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true" />
+
+        <!-- Layout label (alignParentTop + alignParentEnd) -->
+        <TextView
+            android:id="@+id/tv_layout_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="RelativeLayout"
+            android:textColor="@color/accent_cyan"
+            android:textSize="10sp"
+            android:fontFamily="monospace"
+            android:background="@drawable/chip_course_bg"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:paddingTop="3dp"
+            android:paddingBottom="3dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true" />
+
+        <!-- ── AVATAR (centerHorizontal, below back button) ── -->
+        <RelativeLayout
+            android:id="@+id/avatar_container"
+            android:layout_width="@dimen/avatar_size"
+            android:layout_height="@dimen/avatar_size"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/btn_back_profile"
+            android:layout_marginTop="20dp">
+
+            <!-- Avatar background circle -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/avatar_bg" />
+
+            <!-- Avatar initials text (centered inside avatar) -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="AJ"
+                android:textColor="@color/text_primary"
+                android:textSize="32sp"
+                android:textStyle="bold"
+                android:layout_centerInParent="true" />
+        </RelativeLayout>
+
+        <!-- Online indicator badge (aligned to bottom-end of avatar) -->
+        <View
+            android:id="@+id/online_badge"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:background="@drawable/avatar_bg"
+            android:visibility="visible"
+            android:layout_alignBottom="@id/avatar_container"
+            android:layout_alignEnd="@id/avatar_container" />
+
+        <!-- ── NAME (below avatar, center horizontal) ── -->
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/avatar_container"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="12dp"
+            android:text="@string/profile_name"
+            android:textColor="@color/text_primary"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:gravity="center" />
+
+        <!-- Major (below name, centerHorizontal) -->
+        <TextView
+            android:id="@+id/tv_major"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_name"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="4dp"
+            android:text="@string/profile_major"
+            android:textColor="@color/accent_purple"
+            android:textSize="13sp"
+            android:fontFamily="monospace" />
+
+        <!-- University (below major, centerHorizontal) -->
+        <TextView
+            android:id="@+id/tv_university"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_major"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="2dp"
+            android:text="@string/profile_university"
+            android:textColor="@color/text_secondary"
+            android:textSize="12sp" />
+
+        <!-- ── STATS ROW (3 items using toRightOf chaining) ── -->
+        <!-- Stats container (below university) -->
+        <LinearLayout
+            android:id="@+id/stats_row"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_university"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal"
+            android:background="@drawable/card_bg"
+            android:padding="16dp">
+
+            <!-- GPA Stat -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/profile_gpa"
+                    android:textColor="@color/accent_cyan"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    android:gravity="center" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/profile_gpa_label"
+                    android:textColor="@color/text_hint"
+                    android:textSize="10sp"
+                    android:letterSpacing="0.1"
+                    android:gravity="center" />
+            </LinearLayout>
+
+            <!-- Vertical Divider -->
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/divider" />
+
+            <!-- Year Stat -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/profile_year"
+                    android:textColor="@color/accent_pink"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    android:gravity="center" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/profile_year_label"
+                    android:textColor="@color/text_hint"
+                    android:textSize="10sp"
+                    android:letterSpacing="0.1"
+                    android:gravity="center" />
+            </LinearLayout>
+
+            <!-- Vertical Divider -->
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/divider" />
+
+            <!-- Credits Stat -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/profile_credits"
+                    android:textColor="@color/accent_yellow"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    android:gravity="center" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/profile_credits_label"
+                    android:textColor="@color/text_hint"
+                    android:textSize="10sp"
+                    android:letterSpacing="0.1"
+                    android:gravity="center" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- ── EDIT SECTION (below stats) ── -->
+        <TextView
+            android:id="@+id/tv_edit_header"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/stats_row"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="20dp"
+            android:text="EDIT INFO"
+            android:textColor="@color/text_hint"
+            android:textSize="10sp"
+            android:fontFamily="monospace"
+            android:letterSpacing="0.15" />
+
+        <!-- Email EditText (below header, full width) -->
+        <EditText
+            android:id="@+id/et_email"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:layout_below="@id/tv_edit_header"
+            android:layout_marginTop="10dp"
+            android:hint="@string/profile_email_hint"
+            android:text="@string/profile_email"
+            android:textColor="@color/text_primary"
+            android:textColorHint="@color/text_hint"
+            android:textSize="14sp"
+            android:background="@drawable/edittext_bg"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:paddingTop="0dp"
+            android:paddingBottom="0dp"
+            android:inputType="textEmailAddress"
+            android:singleLine="true" />
+
+        <!-- Bio EditText (below email, multi-line) -->
+        <EditText
+            android:id="@+id/et_bio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/et_email"
+            android:layout_marginTop="10dp"
+            android:hint="Bio"
+            android:text="@string/profile_bio"
+            android:textColor="@color/text_primary"
+            android:textColorHint="@color/text_hint"
+            android:textSize="14sp"
+            android:background="@drawable/edittext_bg"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:paddingTop="14dp"
+            android:paddingBottom="14dp"
+            android:inputType="textMultiLine"
+            android:minLines="3"
+            android:gravity="top|start"
+            android:lineSpacingMultiplier="1.4" />
+
+        <!-- ── VISIBILITY DEMO ── -->
+        <TextView
+            android:id="@+id/tv_visibility_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/et_bio"
+            android:layout_marginTop="20dp"
+            android:text="VISIBILITY DEMO"
+            android:textColor="@color/text_hint"
+            android:textSize="10sp"
+            android:fontFamily="monospace"
+            android:letterSpacing="0.15" />
+
+        <!-- Visibility row -->
+        <LinearLayout
+            android:id="@+id/visibility_row"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_visibility_label"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal"
+            android:background="@drawable/card_bg"
+            android:padding="12dp">
+
+            <!-- VISIBLE box -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_marginEnd="4dp">
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="36dp"
+                    android:background="@color/accent_green"
+                    android:visibility="visible" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="VISIBLE"
+                    android:textColor="@color/accent_green"
+                    android:textSize="9sp"
+                    android:fontFamily="monospace"
+                    android:gravity="center"
+                    android:layout_gravity="center" />
+            </LinearLayout>
+
+            <!-- INVISIBLE box (hidden but takes space) -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_marginEnd="4dp">
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="36dp"
+                    android:background="@color/accent_yellow"
+                    android:visibility="invisible" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="INVISIBLE"
+                    android:textColor="@color/accent_yellow"
+                    android:textSize="9sp"
+                    android:fontFamily="monospace"
+                    android:gravity="center"
+                    android:layout_gravity="center" />
+            </LinearLayout>
+
+            <!-- GONE box (hidden, no space) -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center">
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="36dp"
+                    android:background="@color/accent_pink"
+                    android:visibility="gone" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="GONE"
+                    android:textColor="@color/accent_pink"
+                    android:textSize="9sp"
+                    android:fontFamily="monospace"
+                    android:gravity="center"
+                    android:layout_gravity="center" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- ── BUTTONS (Save + Cancel, toRightOf pattern) ── -->
+        <!-- Cancel button (below visibility, start-aligned) -->
+        <Button
+            android:id="@+id/btn_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/btn_height"
+            android:layout_below="@id/visibility_row"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="20dp"
+            android:text="Cancel"
+            android:textColor="@color/accent_purple"
+            android:textSize="14sp"
+            android:background="@drawable/btn_secondary"
+            android:paddingStart="28dp"
+            android:paddingEnd="28dp" />
+
+        <!-- Save button (below visibility, toRightOf cancel, end-aligned) -->
+        <Button
+            android:id="@+id/btn_save"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/btn_height"
+            android:layout_below="@id/visibility_row"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="20dp"
+            android:text="@string/btn_save"
+            android:textColor="@color/text_primary"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:background="@drawable/btn_primary"
+            android:paddingStart="32dp"
+            android:paddingEnd="32dp" />
+
+        <!-- Bottom spacer -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="24dp"
+            android:layout_below="@id/btn_save" />
+
+    </RelativeLayout>
+</ScrollView>

@@ -1,0 +1,484 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    ╔══════════════════════════════════════════════════╗
+    ║  activity_main.xml                               ║
+    ║  CONCEPT: ConstraintLayout — Navigation Hub      ║
+    ║  Demonstrates: constraints, bias, dimensions,    ║
+    ║  visibility, background, padding, margin         ║
+    ╚══════════════════════════════════════════════════╝
+-->
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_dark"
+    android:fillViewport="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/screen_padding"
+        android:paddingTop="@dimen/screen_padding_top">
+
+        <!-- ── HEADER SECTION ── -->
+
+        <!-- App tag label (top-start, using constraint bias) -->
+        <TextView
+            android:id="@+id/tv_tag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ANDROID XML"
+            android:textColor="@color/accent_cyan"
+            android:textSize="10sp"
+            android:fontFamily="monospace"
+            android:letterSpacing="0.2"
+            android:background="@drawable/chip_course_bg"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <!-- Hero Title — constrained below tag, uses horizontal bias 0 (start-aligned) -->
+        <TextView
+            android:id="@+id/tv_hero_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="UI\nPlayground"
+            android:textColor="@color/text_primary"
+            android:textSize="48sp"
+            android:textStyle="bold"
+            android:fontFamily="sans-serif-condensed"
+            android:lineSpacingMultiplier="0.9"
+            app:layout_constraintTop_toBottomOf="@id/tv_tag"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/tv_version_badge" />
+
+        <!-- Version badge — constrained to end, uses vertical bias -->
+        <TextView
+            android:id="@+id/tv_version_badge"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:text="v1.0"
+            android:textColor="@color/accent_purple"
+            android:textSize="11sp"
+            android:fontFamily="monospace"
+            android:gravity="center"
+            android:background="@drawable/btn_secondary"
+            app:layout_constraintTop_toTopOf="@id/tv_hero_title"
+            app:layout_constraintBottom_toBottomOf="@id/tv_hero_title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintVertical_bias="0.5" />
+
+        <!-- Subtitle — uses width percentage constraint (70% of parent) -->
+        <TextView
+            android:id="@+id/tv_subtitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Master XML layouts &amp; widgets through hands-on demos"
+            android:textColor="@color/text_secondary"
+            android:textSize="14sp"
+            android:lineSpacingMultiplier="1.4"
+            app:layout_constraintTop_toBottomOf="@id/tv_hero_title"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintWidth_percent="0.85"
+            app:layout_constraintHorizontal_bias="0" />
+
+        <!-- Divider line using constraint width -->
+        <View
+            android:id="@+id/divider_hero"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="20dp"
+            android:background="@color/divider"
+            app:layout_constraintTop_toBottomOf="@id/tv_subtitle"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- Section label -->
+        <TextView
+            android:id="@+id/tv_section_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="CHOOSE A DEMO SCREEN"
+            android:textColor="@color/text_hint"
+            android:textSize="10sp"
+            android:fontFamily="monospace"
+            android:letterSpacing="0.15"
+            app:layout_constraintTop_toBottomOf="@id/divider_hero"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <!-- ── NAV GRID (2-column, using guidelines) ── -->
+
+        <!-- Left Guideline at 48% width -->
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.49" />
+
+        <!-- Card 1: Profile (Relative Layout) -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/card_profile"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/nav_card_height"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="6dp"
+            android:background="@drawable/nav_card_bg"
+            android:padding="16dp"
+            app:layout_constraintTop_toBottomOf="@id/tv_section_label"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/guideline_center">
+
+            <TextView
+                android:id="@+id/card1_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="👤"
+                android:textSize="22sp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="Profile"
+                android:textColor="@color/text_primary"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@id/card1_icon"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="RelativeLayout"
+                android:textColor="@color/accent_cyan"
+                android:textSize="10sp"
+                android:fontFamily="monospace"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!-- Card 2: Stats (Linear Layout) -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/card_stats"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/nav_card_height"
+            android:layout_marginTop="12dp"
+            android:layout_marginStart="6dp"
+            android:background="@drawable/nav_card_bg"
+            android:padding="16dp"
+            app:layout_constraintTop_toBottomOf="@id/tv_section_label"
+            app:layout_constraintStart_toEndOf="@id/guideline_center"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <TextView
+                android:id="@+id/card2_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="📊"
+                android:textSize="22sp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="Stats"
+                android:textColor="@color/text_primary"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@id/card2_icon"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="LinearLayout"
+                android:textColor="@color/accent_pink"
+                android:textSize="10sp"
+                android:fontFamily="monospace"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!-- Card 3: Schedule (Table Layout) -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/card_schedule"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/nav_card_height"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="6dp"
+            android:background="@drawable/nav_card_bg"
+            android:padding="16dp"
+            app:layout_constraintTop_toBottomOf="@id/card_profile"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/guideline_center">
+
+            <TextView
+                android:id="@+id/card3_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="📅"
+                android:textSize="22sp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="Schedule"
+                android:textColor="@color/text_primary"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@id/card3_icon"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TableLayout"
+                android:textColor="@color/accent_yellow"
+                android:textSize="10sp"
+                android:fontFamily="monospace"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!-- Card 4: Gallery (Frame Layout) -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/card_gallery"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/nav_card_height"
+            android:layout_marginTop="12dp"
+            android:layout_marginStart="6dp"
+            android:background="@drawable/nav_card_bg"
+            android:padding="16dp"
+            app:layout_constraintTop_toBottomOf="@id/card_stats"
+            app:layout_constraintStart_toEndOf="@id/guideline_center"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <TextView
+                android:id="@+id/card4_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🖼️"
+                android:textSize="22sp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="Gallery"
+                android:textColor="@color/text_primary"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@id/card4_icon"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="FrameLayout"
+                android:textColor="@color/accent_green"
+                android:textSize="10sp"
+                android:fontFamily="monospace"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!-- Card 5: Widgets (full width) -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/card_widgets"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/nav_card_height"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/btn_primary"
+            android:padding="16dp"
+            app:layout_constraintTop_toBottomOf="@id/card_schedule"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <TextView
+                android:id="@+id/card5_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🎛️"
+                android:textSize="22sp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginStart="12dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@id/card5_icon">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Widgets &amp; Attributes"
+                    android:textColor="@color/text_primary"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="Button · EditText · CheckBox · Switch · Toggle · Progress"
+                    android:textColor="#CCFFFFFF"
+                    android:textSize="10sp"
+                    android:fontFamily="monospace" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="→"
+                android:textColor="@color/text_primary"
+                android:textSize="24sp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!-- ── CONCEPTS QUICK-REFERENCE BAR ── -->
+        <TextView
+            android:id="@+id/tv_concepts_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="COVERED CONCEPTS"
+            android:textColor="@color/text_hint"
+            android:textSize="10sp"
+            android:fontFamily="monospace"
+            android:letterSpacing="0.15"
+            app:layout_constraintTop_toBottomOf="@id/card_widgets"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <!-- Concepts card with LinearLayout inside Constraint -->
+        <LinearLayout
+            android:id="@+id/concepts_row1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp"
+            app:layout_constraintTop_toBottomOf="@id/tv_concepts_label"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="View &amp; ViewGroup"
+                android:textColor="@color/text_secondary"
+                android:textSize="11sp"
+                android:background="@drawable/chip_course_bg"
+                android:gravity="center"
+                android:paddingTop="6dp"
+                android:paddingBottom="6dp"
+                android:layout_marginEnd="6dp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Gravity"
+                android:textColor="@color/text_secondary"
+                android:textSize="11sp"
+                android:background="@drawable/chip_course_bg"
+                android:gravity="center"
+                android:paddingTop="6dp"
+                android:paddingBottom="6dp"
+                android:layout_marginEnd="6dp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Weight"
+                android:textColor="@color/text_secondary"
+                android:textSize="11sp"
+                android:background="@drawable/chip_course_bg"
+                android:gravity="center"
+                android:paddingTop="6dp"
+                android:paddingBottom="6dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/concepts_row2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="6dp"
+            app:layout_constraintTop_toBottomOf="@id/concepts_row1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Margin &amp; Padding"
+                android:textColor="@color/text_secondary"
+                android:textSize="11sp"
+                android:background="@drawable/chip_course_bg"
+                android:gravity="center"
+                android:paddingTop="6dp"
+                android:paddingBottom="6dp"
+                android:layout_marginEnd="6dp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Visibility"
+                android:textColor="@color/text_secondary"
+                android:textSize="11sp"
+                android:background="@drawable/chip_course_bg"
+                android:gravity="center"
+                android:paddingTop="6dp"
+                android:paddingBottom="6dp"
+                android:layout_marginEnd="6dp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Background"
+                android:textColor="@color/text_secondary"
+                android:textSize="11sp"
+                android:background="@drawable/chip_course_bg"
+                android:gravity="center"
+                android:paddingTop="6dp"
+                android:paddingBottom="6dp" />
+        </LinearLayout>
+
+        <!-- Bottom padding spacer -->
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="24dp"
+            app:layout_constraintTop_toBottomOf="@id/concepts_row2"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

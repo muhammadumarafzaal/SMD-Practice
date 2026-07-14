@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    ╔══════════════════════════════════════════════════════════╗
+    ║  activity_gallery.xml                                    ║
+    ║  CONCEPT: FrameLayout                                    ║
+    ║  Demonstrates: overlapping views, foreground,            ║
+    ║  layout_gravity for child positioning, badge overlay,    ║
+    ║  gradient overlay, ImageView, padding, margin            ║
+    ╚══════════════════════════════════════════════════════════╝
+-->
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_dark">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/screen_padding"
+        android:paddingTop="@dimen/screen_padding_top">
+
+        <!-- Header -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="← Back"
+                android:textColor="@color/accent_purple"
+                android:textSize="14sp"
+                android:fontFamily="monospace" />
+
+            <Space android:layout_width="0dp" android:layout_height="1dp" android:layout_weight="1" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="FrameLayout"
+                android:textColor="@color/accent_green"
+                android:textSize="10sp"
+                android:fontFamily="monospace"
+                android:background="@drawable/chip_course_bg"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:paddingTop="3dp"
+                android:paddingBottom="3dp" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/gallery_title"
+            android:textColor="@color/text_primary"
+            android:textSize="@dimen/text_xxl"
+            android:textStyle="bold"
+            android:fontFamily="sans-serif-condensed" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="Views overlapping in FrameLayout"
+            android:textColor="@color/text_secondary"
+            android:textSize="13sp" />
+
+        <!-- ────────────────────────────────────────────────────────────
+             MAIN FRAME: Photo viewer with overlapping layers
+             Each child is stacked on top of the previous one.
+             layout_gravity controls WHERE each overlay sits
+             ──────────────────────────────────────────────────────────── -->
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="10dp"
+            android:text="PHOTO CARD — 4 LAYERS STACKED"
+            android:textColor="@color/text_hint"
+            android:textSize="10sp"
+            android:fontFamily="monospace"
+            android:letterSpacing="0.15" />
+
+        <!--
+            FrameLayout: All children overlap
+            Layer 1 (bottom) → Layer 4 (top)
+        -->
+        <FrameLayout
+            android:id="@+id/frame_photo"
+            android:layout_width="match_parent"
+            android:layout_height="260dp">
+
+            <!-- LAYER 1 (bottom): Background image placeholder -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/image_placeholder_bg"
+                android:layout_gravity="center" />
+
+            <!-- Campus visual representation (styled text as image placeholder) -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🏛️"
+                android:textSize="80sp"
+                android:layout_gravity="center" />
+
+            <!-- LAYER 2: Bottom gradient overlay (scrim for text readability) -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:background="@drawable/overlay_gradient_bg"
+                android:layout_gravity="bottom" />
+
+            <!-- LAYER 3: Text content at bottom (layout_gravity=bottom|start) -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp"
+                android:layout_gravity="bottom|start">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/gallery_caption"
+                    android:textColor="@color/text_primary"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="@string/gallery_likes"
+                    android:textColor="#CCFFFFFF"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <!-- LAYER 4 (top): "NEW" badge at top-end corner
+                 layout_gravity=top|end positions it in the top-right corner -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="  NEW  "
+                android:textColor="@color/text_primary"
+                android:textSize="11sp"
+                android:textStyle="bold"
+                android:fontFamily="monospace"
+                android:background="@drawable/badge_bg"
+                android:paddingTop="4dp"
+                android:paddingBottom="4dp"
+                android:layout_gravity="top|end"
+                android:layout_margin="12dp" />
+
+            <!-- Photo number indicator at top-start -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="  1 / 3  "
+                android:textColor="@color/text_primary"
+                android:textSize="11sp"
+                android:fontFamily="monospace"
+                android:background="#88000000"
+                android:paddingTop="4dp"
+                android:paddingBottom="4dp"
+                android:layout_gravity="top|start"
+                android:layout_margin="12dp" />
+        </FrameLayout>
+
+        <!-- Navigation buttons below the frame -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="12dp">
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="44dp"
+                android:layout_weight="1"
+                android:text="@string/btn_prev"
+                android:textColor="@color/accent_purple"
+                android:textSize="14sp"
+                android:background="@drawable/btn_secondary"
+                android:layout_marginEnd="8dp" />
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="44dp"
+                android:layout_weight="1"
+                android:text="@string/btn_next"
+                android:textColor="@color/text_primary"
+                android:textSize="14sp"
+                android:background="@drawable/btn_primary" />
+        </LinearLayout>
+
+        <!-- ── SECOND FRAME: ImageView with badge (simpler example) ── -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="10dp"
+            android:text="AVATAR + STATUS BADGE OVERLAY"
+            android:textColor="@color/text_hint"
+            android:textSize="10sp"
+            android:fontFamily="monospace"
+            android:letterSpacing="0.15" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="@drawable/card_bg"
+            android:padding="20dp"
+            android:gravity="center_vertical">
+
+            <!-- FrameLayout: Avatar circle + online dot badge -->
+            <FrameLayout
+                android:layout_width="72dp"
+                android:layout_height="72dp">
+
+                <!-- Avatar circle -->
+                <View
+                    android:layout_width="72dp"
+                    android:layout_height="72dp"
+                    android:background="@drawable/avatar_bg" />
+
+                <!-- Initials centered -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="AJ"
+                    android:textColor="@color/text_primary"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    android:layout_gravity="center" />
+
+                <!-- Green dot badge: bottom-end, layout_gravity positions it -->
+                <View
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:background="@drawable/avatar_bg"
+                    android:layout_gravity="bottom|end" />
+            </FrameLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:layout_marginStart="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Alex Johnson"
+                    android:textColor="@color/text_primary"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="● Online"
+                    android:textColor="@color/accent_green"
+                    android:textSize="12sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- ── FRAME LAYOUT EXPLAINED ── -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/card_bg"
+            android:padding="16dp"
+            android:layout_marginTop="12dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="HOW FRAMELAYOUT WORKS"
+                android:textColor="@color/accent_cyan"
+                android:textSize="10sp"
+                android:fontFamily="monospace"
+                android:letterSpacing="0.1" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Children are drawn in order — each on top of the previous. Use layout_gravity to anchor overlaid views to specific corners or edges."
+                android:textColor="@color/text_secondary"
+                android:textSize="13sp"
+                android:lineSpacingMultiplier="1.5" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="layout_gravity values used above:"
+                android:textColor="@color/text_secondary"
+                android:textSize="12sp" />
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:text="  center  •  bottom  •  top|end  •  top|start  •  bottom|end" android:textColor="@color/accent_purple" android:textSize="11sp" android:fontFamily="monospace" />
+        </LinearLayout>
+
+        <Space android:layout_width="match_parent" android:layout_height="24dp" />
+
+    </LinearLayout>
+</ScrollView>
