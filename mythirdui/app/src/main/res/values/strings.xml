@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MyThirdUI</string>
+    <string name="hint_name">Enter Name</string>
+    <string name="hint_email">Enter Email</string>
+    <string name="notifications">Notifications</string>
+    <string name="dark_mode">Dark Mode</string>
+    <string name="light_mode">Light Mode</string>
+    <string name="profile_completion">Profile Completion</string>
+    <string name="save">Save</string>
+    <string name="logout">Logout</string>
+    <string name="courses">Courses</string>
+    <string name="assignments">Assignments</string>
+    <string name="cgpa">CGPA</string>
+    <string name="profile_picture">Profile picture of user</string>
+</resources>
